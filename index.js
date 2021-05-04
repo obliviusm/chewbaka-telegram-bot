@@ -27,10 +27,26 @@ bot.onText(/\/vetaluga/, (msg) => {
 
 
 bot.onText(/\/den/, (msg) => {
-
+  console.log(msg)
   bot.sendPhoto(msg.chat.id, "https://scontent.fiev26-1.fna.fbcdn.net/v/t1.18169-9/22688023_110988523001180_6113174933057110659_n.jpg?_nc_cat=110&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=tQmHmxqYUmgAX8sncpM&_nc_ht=scontent.fiev26-1.fna&oh=290d8bde374cc28ce89104aa4e77b525&oe=60ADC9E5");
 
 });
+
+bot.onText(/\/инфа/, (msg) =>{
+    let text = msg.text;
+    const chatId = msg.chat.id;
+    const username = msg.from.username;
+    console.log('chatId', chatId);
+    console.log(msg);
+    if(text.includes('/инфа')){
+        text = text.replace('/инфа', '')
+        const randomResult = Math.floor(Math.random() * 101);
+        bot.sendMessage(chatId, `Инфа от ${username}: ${text} = ${randomResult}`);
+    }
+})
+
+
+
 
 bot.onText(/\/joke/, async (msg) => {
   const apiKey = ""
